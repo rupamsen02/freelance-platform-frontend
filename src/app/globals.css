@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  font-size: 20px !important;
+}
+
+.border-animation {
+  position: relative;
+  padding: 3px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 0 15px rgba(59, 130, 246, 0.3),
+    0 0 30px rgba(139, 92, 246, 0.2);
+}
+
+.border-animation::before {
+  content: "";
+  position: absolute;
+  inset: -200%;
+  background: conic-gradient(#00f5ff, #3b82f6, #8b5cf6, #ec4899, #00f5ff);
+  animation: spinBorder 2s linear infinite;
+}
+
+.border-animation > div {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes spinBorder {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
