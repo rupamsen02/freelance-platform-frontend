@@ -16,6 +16,7 @@ function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const currentUser = useLocalStorage("currentUser");
 
@@ -80,7 +81,7 @@ function Navbar() {
                 <img
                   src={
                     currentUser.img
-                      ? `http://localhost:8800/uploads/${encodeURIComponent(
+                      ? `${API_URL}/uploads/${encodeURIComponent(
                           currentUser.img,
                         )}`
                       : "/img/noavatar.jpg"

@@ -22,6 +22,8 @@ const EditProfile = () => {
     profileImage: "",
   });
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   const router = useRouter();
 
   // const [profilePicture, setProfilePicture] = useState(null);
@@ -33,7 +35,7 @@ const EditProfile = () => {
         const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
         const res = await fetch(
-          `http://localhost:8800/api/freelancer/${currentUser._id}`,
+          `${API_URL}/api/freelancer/${currentUser._id}`,
         );
 
         const data = await res.json();
@@ -51,7 +53,7 @@ const EditProfile = () => {
             : "",
         });
         if (data.profileImage) {
-          const imageUrl = `http://localhost:8800/uploads/${data.profileImage}`;
+          const imageUrl = `${API_URL}/uploads/${data.profileImage}`;
           console.log(imageUrl);
           setPreviewImage(imageUrl);
         } else {
@@ -95,7 +97,7 @@ const EditProfile = () => {
       formData.append("profileImage", file);
 
       const res = await fetch(
-        `http://localhost:8800/api/freelancer/${currentUser._id}`,
+        `${API_URL}/api/freelancer/${currentUser._id}`,
         {
           method: "PUT",
           body: formData,
@@ -129,7 +131,7 @@ const EditProfile = () => {
       }));
 
       setPreviewImage(
-        `http://localhost:8800/uploads/${updatedData.profileImage}`,
+        `${API_URL}/uploads/${updatedData.profileImage}`,
       );
       setSelectedFile(null);
 
@@ -146,7 +148,7 @@ const EditProfile = () => {
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
       const res = await fetch(
-        `http://localhost:8800/api/freelancer/${currentUser._id}/image`,
+        `${API_URL}/api/freelancer/${currentUser._id}/image`,
         {
           method: "DELETE",
           headers: {
@@ -213,7 +215,7 @@ const EditProfile = () => {
       formData.append("memberSince", profileData.memberSince);
 
       const res = await fetch(
-        `http://localhost:8800/api/freelancer/${currentUser._id}`,
+        `${API_URL}/api/freelancer/${currentUser._id}`,
         {
           method: "PUT",
           headers: {
@@ -253,7 +255,7 @@ const EditProfile = () => {
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
       const res = await fetch(
-        `http://localhost:8800/api/freelancer/${currentUser._id}`,
+        `${API_URL}/api/freelancer/${currentUser._id}`,
         {
           method: "DELETE",
           headers: {

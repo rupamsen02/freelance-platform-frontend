@@ -13,12 +13,13 @@ function Step1({ data, onChange, onNext, file, setFile }) {
   const [error, setError] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const debouncedCheckUsername = useCallback(
     debounce(async (username) => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/users/check/exists",
+          `${API_URL}/api/users/check/exists`,
           {
             params: { username },
           }
@@ -37,7 +38,7 @@ function Step1({ data, onChange, onNext, file, setFile }) {
     debounce(async (email) => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/users/check/exists",
+          `${API_URL}/api/users/check/exists`,
           {
             params: { email },
           }
@@ -77,7 +78,7 @@ function Step1({ data, onChange, onNext, file, setFile }) {
     e.preventDefault();
     try {
       const res = await axios.get(
-        "http://localhost:8800/api/users/check/exists",
+        `${API_URL}/api/users/check/exists`,
         {
           params: {
             username: data.username,
@@ -601,13 +602,13 @@ export default function JoinOnboarding() {
     }
 
     try {
-      await axios.post("http://localhost:8800/api/auth/register", formData, {
+      await axios.post(`${API_URL}/api/auth/register`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true,
       });
 
       const loginRes = await axios.post(
-        "http://localhost:8800/api/auth/login",
+        `${API_URL}/api/auth/login`,
         {
           username: data.username,
           password: data.password,

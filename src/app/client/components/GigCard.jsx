@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const GigCard = ({ item }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const handleNext = (e) => {
     e.preventDefault();
@@ -43,7 +44,7 @@ const GigCard = ({ item }) => {
             <img
               src={
                 item.cover && item.cover.length > 0
-                  ? `http://localhost:8800/uploads/${encodeURIComponent(item.cover[currentImageIndex])}`
+                  ? `${API_URL}/uploads/${encodeURIComponent(item.cover[currentImageIndex])}`
                   : "/noimage.jpg"
               }
               alt={`gig-${item._id}`}

@@ -18,6 +18,7 @@ const GigDetailPage = () => {
   const searchParams = useSearchParams();
   const { id: gigId } = useParams();
   const router = useRouter();
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedUser = localStorage.getItem("currentUser");
@@ -150,7 +151,7 @@ const GigDetailPage = () => {
             {gig.images?.length > 0 && (
               <div className="relative max-w-[120vh] max-h-[120vh] overflow-hidden rounded-lg shadow">
                 <Image1
-                  src={`http://localhost:8800/uploads/${gig.images[currentImageIndex]}`}
+                  src={`${API_URL}/uploads/${gig.images[currentImageIndex]}`}
                   alt={`Gig image ${currentImageIndex + 1}`}
                   width={1280}
                   height={720}

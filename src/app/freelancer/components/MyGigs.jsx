@@ -9,6 +9,7 @@ export default function MyGigs() {
   const [gigs, setGigs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingGig, setEditingGig] = useState(null);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const router = useRouter();
 
@@ -20,7 +21,7 @@ export default function MyGigs() {
     try {
       const user = JSON.parse(localStorage.getItem("currentUser"));
 
-      const res = await axios.get("http://localhost:8800/api/gig/my-gigs", {
+      const res = await axios.get(`${API_URL}/api/gig/my-gigs`, {
         withCredentials: true,
       });
 
@@ -36,7 +37,7 @@ export default function MyGigs() {
     const user = JSON.parse(localStorage.getItem("currentUser"));
 
     try {
-      await axios.delete(`http://localhost:8800/api/gig/${id}`, {
+      await axios.delete(`${API_URL}/api/gig/${id}`, {
         withCredentials: true,
       });
 
@@ -54,7 +55,7 @@ export default function MyGigs() {
       const user = JSON.parse(localStorage.getItem("currentUser"));
 
       await axios.put(
-        `http://localhost:8800/api/gig/${editingGig._id}`,
+        `${API_URL}/api/gig/${editingGig._id}`,
         {
           title: editingGig.title,
           desc: editingGig.desc,

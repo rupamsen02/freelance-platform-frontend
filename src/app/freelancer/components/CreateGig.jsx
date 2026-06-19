@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 
 const CreateGig = ({ gigData, setGigData, profileData, onBack }) => {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const router = useRouter();
 
   const categorySkillsMap = {
@@ -59,7 +60,7 @@ const CreateGig = ({ gigData, setGigData, profileData, onBack }) => {
     });
 
     try {
-      const res = await fetch("http://localhost:8800/api/gig", {
+      const res = await fetch(`${API_URL}/api/gig`, {
         method: "POST",
         body: formData,
         credentials: "include",

@@ -20,6 +20,7 @@ const AddGig = () => {
   const [shortTitle, setShortTitle] = useState("");
   const [shortDesc, setShortDesc] = useState("");
   const [features, setFeatures] = useState("");
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const router = useRouter();
 
@@ -67,7 +68,7 @@ const AddGig = () => {
     try {
       const token = user.token;
 
-      const res = await axios.post("http://localhost:8800/api/gig/", formData, {
+      const res = await axios.post(`${API_URL}/api/gig/`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -100,7 +101,7 @@ const AddGig = () => {
     formData.append("price", price);
 
     try {
-      await axios.put(`http://localhost:8800/api/gig/${id}`, formData, {
+      await axios.put(`${API_URL}/api/gig/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${user.token}`,
           "Content-Type": "multipart/form-data",
@@ -120,7 +121,7 @@ const AddGig = () => {
     const user = JSON.parse(localStorage.getItem("currentUser"));
 
     try {
-      await axios.delete(`http://localhost:8800/api/gig/${gigId}`, {
+      await axios.delete(`${API_URL}/api/gig/${gigId}`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

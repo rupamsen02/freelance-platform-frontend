@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import newRequest from "../client/components/newRequest";
 
 const Review = ({ review }) => {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   if (!review || !review.userId) return null;
   const { isLoading, error, data } = useQuery({
     queryKey: [review.userId],
@@ -12,7 +13,7 @@ const Review = ({ review }) => {
       : Promise.resolve(null),
   });
   console.log("User data:", data);
-  console.log("Resolved image path:", `http://localhost:8800/uploads/${data?.img ?? "noavatar.jpg"}`);
+  console.log("Resolved image path:", `${API_URL}/uploads/${data?.img ?? "noavatar.jpg"}`);
   return (
     <div className="flex flex-col gap-5 my-5">
       {isLoading ? (
@@ -23,7 +24,7 @@ const Review = ({ review }) => {
         <div className="flex items-center gap-4">
           <img
             className="h-12 w-12 rounded-full object-cover"
-            src={`http://localhost:8800/uploads/${data.img || "noavatar.jpg"}`}
+            src={`${API_URL}/uploads/${data.img || "noavatar.jpg"}`}
             alt="user profile"
           />
           <div className="flex flex-col">

@@ -17,6 +17,7 @@ const Message = () => {
   const containerRef = useRef();
   const searchParams = useSearchParams();
   const gigId = searchParams.get("gigId");
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const otherUserId =
     currentUser && gig
@@ -229,7 +230,7 @@ const Message = () => {
                       >
                         {!isCurrentUser && (
                           <img
-                            src={`http://localhost:8800/uploads/${otherUser?.img}`}
+                            src={`${API_URL}/uploads/${otherUser?.img}`}
                             alt="default-user"
                             className="w-8 h-8 rounded-full mr-2"
                           />
@@ -254,7 +255,7 @@ const Message = () => {
                         </div>
                         {isCurrentUser && (
                           <img
-                            src={`http://localhost:8800/uploads/${currentUser?.img}`}
+                            src={`${API_URL}/uploads/${currentUser?.img}`}
                             alt="default-user"
                             className="w-8 h-8 rounded-full ml-2"
                           />
