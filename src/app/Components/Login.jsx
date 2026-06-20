@@ -179,6 +179,31 @@ function Login() {
                         Login
                       </button>
 
+                      {/* Demo Credentials */}
+                      <div className="mt-4 p-3 bg-gray-100 rounded-md text-sm">
+                        <p className="font-semibold text-gray-700 mb-2">
+                          Demo Accounts
+                        </p>
+
+                        <div className="mb-2">
+                          <p>
+                            <strong>Client</strong>
+                          </p>
+                          <p>Username: dolan</p>
+                          <p>Email: dolan@gmail.com</p>
+                          <p>Password: 12345678</p>
+                        </div>
+
+                        <div>
+                          <p>
+                            <strong>Freelancer</strong>
+                          </p>
+                          <p>Username: rupamsen76</p>
+                          <p>Email: rupamsen195@gmail.com</p>
+                          <p>Password: 12345678</p>
+                        </div>
+                      </div>
+
                       {error && (
                         <div className="text-gray-500 text-sm mt-2">
                           {typeof error === "string"
