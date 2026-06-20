@@ -204,14 +204,14 @@ const Message = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col mx-auto">
+      <div className="flex flex-col mx-auto h-[calc(100vh-80px)]">
         <div className="flex">
-          <div className="border-r border-gray-300 w-100 text-center h-147">
+          <div className="border-r border-gray-300 w-100 text-center h-full">
             <h2 className="text-2xl font-semibold mb-4 mx-auto p-4">Chat</h2>
           </div>
-          <div className="flex flex-col w-full h-147">
+          <div className="flex flex-col w-full h-full">
             <div
-              className="p-4 h-140 overflow-y-scroll bg-white border-b border-gray-300 mb-4"
+              className="flex-1 p-4 overflow-y-auto bg-white border-b border-gray-300"
               ref={containerRef}
             >
               {messages.length === 0 ? (
@@ -274,7 +274,7 @@ const Message = () => {
               )}
             </div>
 
-            <div className="flex mx-4 my-2">
+            <div className="flex mx-4 my-2 shrink-0">
               <input
                 className="w-full border-l border-t border-b border-gray-300 rounded-r-none outline-none rounded-xl px-2 pl-6 h-14"
                 rows="2"
