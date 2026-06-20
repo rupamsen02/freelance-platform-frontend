@@ -84,7 +84,7 @@ const GigDetailPage = () => {
 
   const handleContinue = () => {
     if (!currentUser) {
-      document.getElementById("login_modal")?.showModal();
+      window.dispatchEvent(new Event("openLoginModal"));
       return;
     }
     router.push(
