@@ -600,7 +600,7 @@ export default function JoinOnboarding() {
       const loginRes = await axios.post(
         `${API_URL}/api/auth/login`,
         {
-          username: data.username,
+          identifier: data.username,
           password: data.password,
         },
         { withCredentials: true },
@@ -648,7 +648,7 @@ export default function JoinOnboarding() {
         <div className="fixed inset-0 z-[9999] lg:bg-black/30 flex flex-col items-center jusitfy-start mt-25 md:mt-0 sm:justify-center p-4">
           <div className="border-animation rounded-3xl">
             <div className="relative flex flex-col justify-center bg-white rounded-3xl w-150 md:w-220 h-140 md:h-160 max-w-100 md:max-w-[760px] lg:max-w-[900px] overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-black/5" />
+              <div className="absolute inset-0 bg-black/5 pointer-events-none" />
               <button
                 className="absolute z-50 text-lg text-gray-500 hover:text-black top-2 right-2 btn btn-circle btn-ghost cursor-pointer"
                 onClick={(e) => setOpenModal(false)}
