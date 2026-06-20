@@ -214,7 +214,7 @@ function Step2({ data, onSelectRole, onNext, onBack }) {
           } py-8 px-8 w-72 h-52 rounded flex flex-col items-center justify-center gap-3`}
         >
           <img
-            src="client.png"
+            src="/client.png"
             alt="client"
             className="w-24 h-24 object-contain"
           />
@@ -228,7 +228,7 @@ function Step2({ data, onSelectRole, onNext, onBack }) {
           } py-8 px-8 w-72 h-52 rounded flex flex-col items-center justify-center gap-3`}
         >
           <img
-            src="freelancer.png"
+            src="/freelancer.png"
             alt="freelancer"
             className="w-16 h-16 object-contain"
           />
@@ -261,18 +261,18 @@ function Step3({ data, onSelect, onNext, onBack }) {
   const options =
     data.role === "freelancer"
       ? [
-          { label: "A Side Hustle", icon: "A side hustle.png" },
-          { label: "Solo Freelancer", icon: "solo freelancer.png" },
-          { label: "Agency Employee", icon: "agency employee.png" },
-          { label: "Agency Owner", icon: "agency owner.png" },
+          { label: "A Side Hustle", icon: "/A side hustle.png" },
+          { label: "Solo Freelancer", icon: "/solo freelancer.png" },
+          { label: "Agency Employee", icon: "/agency employee.png" },
+          { label: "Agency Owner", icon: "/agency owner.png" },
         ]
       : [
           {
             label: "Primary Job or Business",
-            icon: "primary job or business.png",
+            icon: "/primary job or business.png",
           },
-          { label: "Secondary Business", icon: "secondary business.png" },
-          { label: "Non-Business Needs", icon: "non-business needs.png" },
+          { label: "Secondary Business", icon: "/secondary business.png" },
+          { label: "Non-Business Needs", icon: "/non-business needs.png" },
         ];
 
   return (
@@ -341,15 +341,15 @@ function Step4({ data, onSelect, onNext, onBack }) {
       : ["Just me", "2-10", "11-50", "51-500", "500+"];
 
   const imageMap = {
-    "I'm just getting started": "i'm just getting started.png",
-    "Freelance online": "freelance online.png",
-    "Freelance offline": "freelance offline.png",
-    "Both online and offline": "both online and offline.png",
-    "Just me": "one user.png",
-    "2-10": "two users.png",
-    "11-50": "three users.png",
-    "51-500": "four users.png",
-    "500+": "enterprise.png",
+    "I'm just getting started": "/i'm just getting started.png",
+    "Freelance online": "/freelance online.png",
+    "Freelance offline": "/freelance offline.png",
+    "Both online and offline": "/both online and offline.png",
+    "Just me": "/one user.png",
+    "2-10": "/two users.png",
+    "11-50": "/three users.png",
+    "51-500": "/four users.png",
+    "500+": "/enterprise.png",
   };
 
   return (
@@ -407,9 +407,9 @@ function Step4({ data, onSelect, onNext, onBack }) {
 
 function Step5({ data, onSelect, onNext, onBack }) {
   const intents = [
-    { label: "Start a Project", icon: "start a project.png" },
-    { label: "Hire a Specific Service", icon: "hire a specific service.png" },
-    { label: "Just Exploring", icon: "just exploring.png" },
+    { label: "Start a Project", icon: "/start a project.png" },
+    { label: "Hire a Specific Service", icon: "/hire a specific service.png" },
+    { label: "Just Exploring", icon: "/just exploring.png" },
   ];
 
   return (
