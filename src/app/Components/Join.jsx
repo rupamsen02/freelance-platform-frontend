@@ -578,6 +578,8 @@ export default function JoinOnboarding() {
     setStep(6);
   };
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   const handleFinalSubmit = async () => {
     const formData = new FormData();
     formData.append("username", data.username);
